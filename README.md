@@ -98,6 +98,46 @@ Shows the last few lines of a file.
 - `sort`
 Arranges lines of a file or input in a specific order, usually alphabetically or numerically.
 
+## 🧾 File Comparison
+
+These commands are used for comparing files and directories
+
+- `diff`
+Compares two text files line by line and highlights differences.
+```bash
+diff file.txt lucy.txt
+```
+> `vimdiff` - Displays side-by-side visual differences between files using the Vim editor interface
+> `colordiff` - Provide syntax-colored output for better readability
+
+- `cmp`
+Compares two files byte by byte
+```bash
+cmp file.txt lucy.txt
+```
+- `comm`
+Compares two sorted files
+```bash
+comm file1.ipynb file2.ipynb
+```
+> Files must be sorted before using
+
+## 📦 Archives & Compression in Linux
+
+These commands are used for creating, extracting, and managing archived and compressed files
+
+- `zip`
+Compresses files into a zip archive
+```bash
+`zip archive.zip file1.ipynb file2.ipynb`
+```
+
+- `unzip`
+Decompresses files from a zip archive
+```bash
+`unzip archive.zip file1.ipynb file2.ipynb`
+```
+
 ## 🔍 Searching Commands
 
 These commands help you find specific files, directories or content within files.
@@ -124,6 +164,91 @@ locate *.py
 - `whereis`
 Displays the location of the binary, source and manual files for a given command. It helps locate where software is installed.
 
+## 📦 Package Management Commands
+
+These commands are used for managing software packages
+> `apt` means Advanced Package Tool
+
+- `sudo apt update` 
+Updates the package list
+
+- `sudo apt upgrade`  
+  Installs available updates for all installed packages.
+  
+- `sudo apt install python3`  
+  Installs a package.
+
+- `apt list --installed`  
+  Lists all installed packages.
+
+- `sudo apt remove python3`  
+  Removes a package 
+
+> ** Notes **
+- CentOS - Replaces `apt` with `yum`
+- Red Hat - Replaces `apt` with `rpm`
+- Fedora - Replaces `apt` with `dnf`
+- Arch Linux - REplaces `apt` with `pacman`
+
+## 🖥️ UNIX System Name & Identification Commands
+
+These commands are used for retrieving system name, kernel version, machine type, and other environment information
+
+- `uname`  
+  Prints the kernel name (e.g., Linux).
+  
+- `uname -a`  
+  Prints all available system info: kernel name, hostname, kernel version, etc.
+  
+- `uname -r`  
+  Shows the kernel release version.
+  
+- `uname -s`  
+  Shows the kernel name.
+  
+- `uname -n`  
+  Shows the network node hostname.
+  
+- `uname -m`  
+  Displays machine hardware name (e.g., x86_64).
+  
+- `uname -p`  
+  Displays processor type.
+  
+- `uname -v`  
+  Shows kernel version details.
+
+## 📡 Networking
+
+These commands are used for networking tasks such as checking IP addresses, diagnosing connections, testing ports, and managing interfaces
+
+- `ssh` - Secure Shell
+Connets to a remote server securely
+```bash
+ssh <username>@<hostname>
+```
+- `ip` 
+
+Replaces the older `ifconfig`(Interface Configuation) command.
+- `ip a` or `ip addr`  
+    Lists all IP addresses.
+
+- `ip link`  
+  Lists all network interfaces.
+  
+- `ip route`  
+  Shows routing table.
+
+- `traceroute`
+Shows the path packets take to reach a network host.
+```bash
+`traceroute <hostname or IP>`
+```
+- `wget`
+Download files from the internet.
+```bash
+`wget <URL>`
+```
 
 ## ❓ Help Commands
 
