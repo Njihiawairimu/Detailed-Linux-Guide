@@ -100,10 +100,10 @@ Arranges lines of a file or input in a specific order, usually alphabetically or
 
 ## 🔍 Searching Commands
 
-These commands help you find specific files, directories, or content within files.
+These commands help you find specific files, directories or content within files.
 
 - `find`
-Searches for files and directories based on criteria such as name, type, or modification date.
+Searches for files and directories based on criteria such as name, type or modification date.
 ```bash 
 find *.md -- find all .md files
 ```
@@ -116,19 +116,18 @@ grep -r 'linux' /Desktop/Detailed-Linux-Guide -- searches the directory recursiv
 ```
 
 - `locate`
-Finds files and directories by name using a pre-built index.
-Searches through the database (It searches recursively through directories)
+Finds files and directories by name using a pre-built index (database of all file paths on your system).
 ```bash
 locate *.py
 ```
 
 - `whereis`
-Displays the location of the binary, source, and manual files for a given command. It helps locate where software is installed.
+Displays the location of the binary, source and manual files for a given command. It helps locate where software is installed.
 
 
 ## ❓ Help Commands
 
-These commands assist users in learning about other commands, their options, and usage.
+These commands assist users in learning about other commands, their options and usage.
 
 - `man`
 Displays the manual (man page) for a command.
