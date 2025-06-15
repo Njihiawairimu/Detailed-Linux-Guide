@@ -108,34 +108,35 @@ Searches for files and directories based on criteria such as name, type, or modi
 find *.md -- find all .md files
 ```
 
-### `grep`
+- `grep`
 Searches for specific patterns or text within files.
 ```bash
 grep 'linux' app.py -- searches for the text Linux in that file
 grep -r 'linux' /Desktop/Detailed-Linux-Guide -- searches the directory recursively
+```
 
-### `locate`
+- `locate`
 Finds files and directories by name using a pre-built index.
 Searches through the database (It searches recursively through directories)
 ```bash
 locate *.py
 ```
 
-### `whereis`
+- `whereis`
 Displays the location of the binary, source, and manual files for a given command. It helps locate where software is installed.
 
 
-## 🆘 Help Commands
+## ❓ Help Commands
 
 These commands assist users in learning about other commands, their options, and usage.
 
-### `man`
+- `man`
 Displays the manual (man page) for a command.
 
-### `--help`
+- `--help`
 Used after a command to show a brief summary of its usage. It is a quick alternative to the full manual.
 
-### `whatis`
+- `whatis`
 Provides a one-line description of a command. 
 
 
