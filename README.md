@@ -79,8 +79,7 @@ This section introduces commands used to view, edit, and understand file content
 - `cat`
 Displays the contents of a file directly in the terminal. 
 
->> It reads the file from beginning to end and outputs the content.
-
+> It reads the file from beginning to end and outputs the content.
 
 - `echo`
 Prints text to the terminal.
@@ -88,13 +87,7 @@ Prints text to the terminal.
 - `less`
 Allows scrolling through the contents of a file one page at a time.
 
->> Use spacebar to move forward, q to quit
-
-- `man`
-Displays the manual page for a specified command. 
-```bash 
-man ls
-```
+> Use spacebar to move forward, q to quit
 
 - `head`
 Displays the first few lines of a file.
@@ -105,7 +98,45 @@ Shows the last few lines of a file.
 - `sort`
 Arranges lines of a file or input in a specific order, usually alphabetically or numerically.
 
+## 🔍 Searching Commands
 
+These commands help you find specific files, directories, or content within files.
+
+- `find`
+Searches for files and directories based on criteria such as name, type, or modification date.
+```bash 
+find *.md -- find all .md files
+```
+
+### `grep`
+Searches for specific patterns or text within files.
+```bash
+grep 'linux' app.py -- searches for the text Linux in that file
+grep -r 'linux' /Desktop/Detailed-Linux-Guide -- searches the directory recursively
+
+### `locate`
+Finds files and directories by name using a pre-built index.
+Searches through the database (It searches recursively through directories)
+```bash
+locate *.py
+```
+
+### `whereis`
+Displays the location of the binary, source, and manual files for a given command. It helps locate where software is installed.
+
+
+## 🆘 Help Commands
+
+These commands assist users in learning about other commands, their options, and usage.
+
+### `man`
+Displays the manual (man page) for a command.
+
+### `--help`
+Used after a command to show a brief summary of its usage. It is a quick alternative to the full manual.
+
+### `whatis`
+Provides a one-line description of a command. 
 
 
 
