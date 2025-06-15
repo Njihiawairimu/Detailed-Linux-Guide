@@ -136,6 +136,7 @@ Compresses files into a zip archive
 Decompresses files from a zip archive
 ```bash
 `unzip archive.zip file1.ipynb file2.ipynb`
+```
 
 ## 🔍 Searching Commands
 
