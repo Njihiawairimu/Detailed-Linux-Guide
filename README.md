@@ -27,10 +27,11 @@ Here's how to navigate and manage files/folders from the terminal:
 
 - `ls`
 Lists the contents of a directory, such as files and subdirectories.
+
 ```bash
-ls -l --long listing format
-ls -a shows hidden files
-ls -lh lists in human readable format
+ls -l # Long listing format
+ls -a # Shows hidden files
+ls -lh # Lists in human readable format
 ```
 
 - `pwd`
@@ -41,33 +42,39 @@ Changes the current directory to a different one specified by the user.
 
 - `mkdir`
 Creates a new directory or folder.
+
 ```bash
-mkdir -p <directory path> -- create parent directory
+mkkdir <directory_path>
+mkdir -p <directory path> # Create parent directory
 ```
 
 - `mv`
 Moves files or directories from one location to another. It can also be used to rename files or directories.
 ```bash
-mv file.txt /Desktop --move file
-mv file.txt lucy.txt --renme file
+mv file.txt /Desktop/Documents # Move file
+mv file.txt lucy.txt # Rename file
 ```
 
 - `cp`
-Copies files or directories from one location to another. 
+Copies files or directories from one location to another, while leaving a copy of the same file. 
 ```bash
-cp file.txt /desktop -- copying to another destination
+cp file.txt /desktop # Copying to another destination
 ```
 
 - `rm`
 Removes or deletes files and directories from the file system.
 ```bash
-rm file.txt --deletes a file
-rm -r lucy -- deletes a directory and its contents recursively
-rm -i file.txt --prompts before deletion
+rm file.txt # Deletes a file
+rm -r lucy # Deletes a directory and its contents recursively
+rm -i file.txt # Prompts before deletion
 ```
 
 - `touch`
 Creates an empty file with the specified name. It can also be used to update the timestamp of existing files.
+
+```bash
+touch new_file.txt
+```
 
 - `clear`
 Clears all previous output on the terminal screen, giving a clean slate for new commands.
@@ -83,6 +90,11 @@ Displays the contents of a file directly in the terminal.
 
 - `echo`
 Prints text to the terminal.
+
+```bash
+echo "Hello world!"
+echo "It's a new day!" > new_file.txt # Writes the text into the new_file.txt file
+```
 
 - `less`
 Allows scrolling through the contents of a file one page at a time.
@@ -163,6 +175,9 @@ locate *.py
 
 - `whereis`
 Displays the location of the binary, source and manual files for a given command. It helps locate where software is installed.
+
+- `which`
+Similar to `whereis`, but only shows one file path
 
 ## 📦 Package Management Commands
 
@@ -263,6 +278,153 @@ Used after a command to show a brief summary of its usage. It is a quick alterna
 - `whatis`
 Provides a one-line description of a command. 
 
+## System Monitoring & Performance
 
+### A. CPU, Memory & Process Usage commands
 
+- `top`
+  Monitor real-time system activity
+- `htop`
+  Returns enhanced interactive process viewer 
+  To install, run `sudo apt install htop`
+- `vmstat`          
+  This reports on memory, CPU, and IO
+- `free -h`        
+  Displays memory usage in human-readable format
+- `uptime`          
+  Shows how long the system has been running
 
+### B. Disk Usage & IO
+
+- `df -h`           
+    Checks disk space usage per filesystem
+- `du -sh *`        
+    Checks space used by directories/files in current path
+- `iostat`          
+    Checks CPU & IO statistics 
+    To install, run `sudo apt install sysstat`
+
+### C. Network Monitoring
+
+- `ip a`            
+    Show network interfaces
+- `ss -tuln`        
+    Display listening ports
+- `ping <ip_address>`      
+    Test connectivity of websites or servers
+    Example:
+    ```bash
+    ping 20.180.98.233
+    ```
+- `traceroute <ip_address>`   
+    Trace route to host
+    ```bash
+    traceroute 20.180.98.233
+    ```
+## User Management
+### A. Add, delete or review user details
+These permissions might need elevated permissions, so make sure to use `sudo`.
+
+- `adduser`
+
+  Create new user and home directory
+  ```bash
+  sudo adduser <user_name>
+  ```
+
+- `deluser`
+
+    Delete user
+    ```bash
+    sudo deluser <user_name>
+    ```
+
+- `finger` (Yeah, yeah I know :) )
+
+  Review and check a user's details
+  Make sure you have installed `finger` using `sudo apt install finger`
+
+  ```bash
+  finger <user_name>
+  ```
+
+- `passwd`
+
+  Set a password or edit a user's password.
+  ```bash
+  passwd <user_name>
+  ```
+
+- `whoami`
+
+  Check the current user
+  ```bash
+  whoami 
+  ```
+
+- `su`
+
+  Switch to the specified user
+
+  ```bash
+  su <user_name>
+  ```
+
+Other commands include:
+
+```bash
+cat /etc/passwd                 # List of all users
+cat /etc/group                  # List of groups
+id <user>                       # Show user's UID, GID, groups
+who                             # Who is logged in
+```
+
+## File Permissions & Ownership
+
+### A. Changing permissions
+The `chmod` command in Unix-like operating systems is used to change the access permissions of files and directories. It allows you to control who can read, write, and execute (or search in the case of directories) files or directories. The name "chmod" is short for "change mode". 
+
+Here are symbolic notations that can be used together with `chmod`:
+- u: User (owner)
+- g: Group
+- o: Others 
+- +: Add permission
+- -: Remove permission
+- =: Set permission exactly 
+- r: Read
+- w: Write
+- x: Execute.
+
+Here are some of the numeric notations that can be used to grant permissions:
+- 4: Read
+- 2: Write
+- 1: Execute 
+- 0: No permission
+
+The numbers are combined to represent combined permissions (e.g., 7 is 4+2+1 which means a combination of read, write, and execute permissions)
+
+> NOTE: Be very careful when running `chmod 777` as this give read, write and execute permissions to all users.
+
+Example usage:
+
+```bash
+chmod u+x <filename> #Adds execute permission for the owner of the file.
+
+chmod g-r <filename> # Removes read permission for the group of the file.
+
+chmod 755 <filename> #Sets permissions to rwxr-xr-x (owner can read, write, and execute; group and others can read and execute).
+
+chmod 644 <filename> #Sets permissions to rw-r--r-- (owner can read and write; group and others can read only).
+```
+### B. Changing Ownership
+
+The chown command in Unix-like operating systems is used to change the owner and group of files and directories. It's a crucial command for managing file permissions and access control. The basic syntax is chown [options] owner[:group] file(s), where owner can be a user name or user ID, and group can be a group name or group ID.
+
+Example usage:
+
+```bash
+chown john:users example.txt
+chown -R jane:developers directory_name
+```
+
+> NOTE: ONLY the superuser (root) or a user with appropriate privileges can change the ownership of a file or directory. 
